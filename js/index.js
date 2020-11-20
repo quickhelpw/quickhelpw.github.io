@@ -1,5 +1,5 @@
 window.onload = hide;
-
+let car = 0;
 let sumCash = 0;
 
 function hide(){
@@ -12,18 +12,21 @@ function os(){
     document.getElementById("alkatOS").style.display="inline";
     document.getElementById("alkatTS").style.display="none";
     document.getElementById("alkatAÜ").style.display="none";
+    car = 0;
 }
 
 function ts(){
     document.getElementById("alkatTS").style.display="inline";
     document.getElementById("alkatOS").style.display="none";
     document.getElementById("alkatAÜ").style.display="none";
+    car = 0;
 }
 
 function aü(){
     document.getElementById("alkatAÜ").style.display="inline";
     document.getElementById("alkatOS").style.display="none";
     document.getElementById("alkatTS").style.display="none";
+    car = 1;
 }
 
 function sum(cb, amount){
@@ -106,4 +109,14 @@ takeMyTime()
 
 function getTime(id){
     console.log(document.getElementById(id).value);
+}
+
+function ellenörzés(){
+    if (car == 1){
+        window.location.href = "autos.html";
+    }
+    else {
+        window.location.href = "vegleges.html";    
+    }
+    
 }
