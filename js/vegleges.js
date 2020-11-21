@@ -56,17 +56,11 @@ function takeMyTime(e) {
 let munkaidő = 0;
 document.querySelector("span.óradíj").innerHTML = óradíj;
 
-let lefoglaltIdok = [[11, 23, 9],[11, 22, 9]];
 
 function disableFoglaltIdo(id){
-    
     document.getElementById(id).disabled = true;
 }
 
-function sumAll() {
-    let sumAll = óradíj * munkaidő;
-    document.querySelector("span.show-AllMount").innerHTML = sumAll;
-}
 
 function pluszÓra(month, day, hour){
     let list = [month, day, hour];
@@ -86,7 +80,7 @@ function numberOfDay(){
             class: "container",
             style: "text-align: left",
             style: "background-color: lightblue",
-
+            
         });
         document.getElementById("ide").appendChild(div);
         document.getElementById(hónap + e).innerHTML = év + "." + hónap + "." + e + "      ";
@@ -95,6 +89,19 @@ function numberOfDay(){
 }
 
 numberOfDay()
+
+let lefoglaltIdok = [[11, 23, 9],[11, 22, 9]];
+
+var lefIdoLen = lefoglaltIdok.length;
+
+for (i = 0; i < lefIdoLen; i++){
+    disableFoglaltIdo(lefoglaltIdok[i]);
+    
+    function sumAll() {
+        let sumAll = óradíj * munkaidő;
+        document.querySelector("span.show-AllMount").innerHTML = sumAll;
+    }
+}
 
 function getTime(id) {
     console.log(document.getElementById(id).value);
