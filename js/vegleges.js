@@ -26,7 +26,7 @@ function createAnyElement(name, attributes) {
 
 function createInput(e, i){
     while (i < 19) {
-        let idBelyeg = e + "," + i;
+        let idBelyeg = hónap + "," + e + "," + i;
         //console.log(idBelyeg);
         let input = createAnyElement("input", {
             type: "button",
@@ -56,15 +56,27 @@ function takeMyTime(e) {
 let munkaidő = 0;
 document.querySelector("span.óradíj").innerHTML = óradíj;
 
-let lefoglaltIdok = [];
+let lefoglaltIdok = [[11, 23, 9],[11, 22, 9]];
 
-function pluszÓra(x, y){
-    console.log(x, y);
-    let list = [x, y];
+function disableFoglaltIdo(id){
+    
+    document.getElementById(id).disabled = true;
+}
+
+function sumAll() {
+    let sumAll = óradíj * munkaidő;
+    document.querySelector("span.show-AllMount").innerHTML = sumAll;
+}
+
+function pluszÓra(month, day, hour){
+    let list = [month, day, hour];
     lefoglaltIdok.push(list);
-    console.log(lefoglaltIdok);
+    let id = month+","+day+","+hour
+    console.log(id);
+    disableFoglaltIdo(id)
     munkaidő += 1;
     document.querySelector("span.munkaóra").innerHTML = munkaidő;
+    sumAll();
 }
 
 function numberOfDay(){
@@ -88,9 +100,5 @@ function getTime(id) {
     console.log(document.getElementById(id).value);
 }
 
-function sumAll() {
-    let sumAll = óradíj * munkaidő;
-    document.querySelector("span.show-AllMount").innerHTML = sumAll;
-}
 
 
