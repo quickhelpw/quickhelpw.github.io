@@ -24,13 +24,12 @@ function createAnyElement(name, attributes) {
     return element;
 }
 
-function takeMyTime(e) {
-    i = 8;
-    while (i != 19) {
+function createInput(e, i){
+    while (i < 19) {
         let input = createAnyElement("input", {
             type: "button",
             name: "time",
-            id: i,
+            id: e + "-" + i,
             value: i + ":00",
             class: "smcontainer",
             //onclick: `getTime(${i})`,
@@ -40,6 +39,16 @@ function takeMyTime(e) {
         document.getElementById(hónap + e).appendChild(input);
         i += 1;
     }
+}
+
+function takeMyTime(e) {
+    if ((óra > 8 ) && (e == nap)){
+        i = óra + 1;
+    }
+    else {
+        i = 8;
+    }
+    createInput(e, i);
 }
 
 let munkaidő = 0;
