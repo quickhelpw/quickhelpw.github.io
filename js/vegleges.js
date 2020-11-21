@@ -12,9 +12,9 @@ var getDaysInMonth = function(month,year) {
    return new Date(year, month, 0).getDate();
   };
 
-console.log(getDaysInMonth(hónap, év) );
+//console.log(getDaysInMonth(hónap, év) );
 let hatralevoNapokSzama = getDaysInMonth(hónap, év) - nap;
-console.log(hatralevoNapokSzama);
+//console.log(hatralevoNapokSzama);
 
 function createAnyElement(name, attributes) {
     let element = document.createElement(name);
@@ -26,14 +26,16 @@ function createAnyElement(name, attributes) {
 
 function createInput(e, i){
     while (i < 19) {
+        let idBelyeg = e + "," + i;
+        //console.log(idBelyeg);
         let input = createAnyElement("input", {
             type: "button",
             name: "time",
-            id: e + "-" + i,
+            id: idBelyeg,
             value: i + ":00",
             class: "smcontainer",
             //onclick: `getTime(${i})`,
-            onclick: "pluszÓra()",
+            onclick: `pluszÓra(${idBelyeg})`,
             style: "text-align: center"
         });
         document.getElementById(hónap + e).appendChild(input);
@@ -54,7 +56,13 @@ function takeMyTime(e) {
 let munkaidő = 0;
 document.querySelector("span.óradíj").innerHTML = óradíj;
 
-function pluszÓra(){
+let lefoglaltIdok = [];
+
+function pluszÓra(x, y){
+    console.log(x, y);
+    let list = [x, y];
+    lefoglaltIdok.push(list);
+    console.log(lefoglaltIdok);
     munkaidő += 1;
     document.querySelector("span.munkaóra").innerHTML = munkaidő;
 }
