@@ -1,4 +1,5 @@
 let óradíj = localStorage.getItem("choice");
+window.onload = disableFoglaltIdo;
 //console.log(óradíj);
 
 let sumCash = 0;
@@ -7,10 +8,14 @@ var év = d.getFullYear()
 var hónap = d.getMonth() + 1;
 var nap = d.getDate();
 var óra = d.getHours();
+let lefoglaltIdok = [[10, 21, 09],[11, 29, 09]];
+
+var lefIdoLen = lefoglaltIdok.length;
+
 
 var getDaysInMonth = function(month,year) {
-   return new Date(year, month, 0).getDate();
-  };
+    return new Date(year, month, 0).getDate();
+};
 
 //console.log(getDaysInMonth(hónap, év) );
 let hatralevoNapokSzama = getDaysInMonth(hónap, év) - nap;
@@ -26,7 +31,7 @@ function createAnyElement(name, attributes) {
 
 function createInput(e, i){
     while (i < 19) {
-        let idBelyeg = hónap + "," + e + "," + i;
+        idBelyeg = hónap + "," + e + "," + i;
         //console.log(idBelyeg);
         let input = createAnyElement("input", {
             type: "button",
@@ -38,7 +43,7 @@ function createInput(e, i){
             onclick: `pluszÓra(${idBelyeg})`,
             style: "text-align: center"
         });
-        document.getElementById(hónap + e).appendChild(input);
+        document.getElementById(hónap + "," + e).appendChild(input);
         i += 1;
     }
 }
@@ -57,16 +62,52 @@ let munkaidő = 0;
 document.querySelector("span.óradíj").innerHTML = óradíj;
 
 
-function disableFoglaltIdo(id){
-    document.getElementById(id).disabled = true;
+function disableFoglaltIdo(){
+    for (i = 0; i < lefIdoLen; i++){
+        if (lefoglaltIdok[i][0] < hónap){
+            continue;
+        }
+        else{
+            document.getElementById(lefoglaltIdok[i]).disabled = true;
+            document.getElementById(lefoglaltIdok[i]).style.background = "black";
+        }
+    }
 }
 
+function sumAll() {
+    let sumAll = óradíj * munkaidő;
+    document.querySelector("span.show-AllMount").innerHTML = sumAll;
+}
+
+function arraysEqual(a1,a2) {
+    /* WARNING: arrays must not contain {objects} or behavior may be undefined */
+    return JSON.stringify(a1)==JSON.stringify(a2);
+}
+
+function foglaltIdokAtnezes(lista, ido){
+    for (i=0; i<lista.length; i++){
+        console.log(lista[i]);
+        console.log(ido);
+        if (arraysEqual(lista[i], ido)){
+            lista.splice(i,1);
+            break;
+        }
+    }
+    lefoglaltIdok.push(ido);
+    console.log(lista);
+}
 
 function pluszÓra(month, day, hour){
     let list = [month, day, hour];
-    lefoglaltIdok.push(list);
     let id = month+","+day+","+hour
     console.log(id);
+    foglaltIdokAtnezes(lefoglaltIdok, list)
+    if (document.getElementById(id).style.background == "red"){
+        document.getElementById(id).style.background = "rgb(41, 223, 56)";
+    }
+    else{
+        document.getElementById(id).style.background = "red";
+    }
     disableFoglaltIdo(id)
     munkaidő += 1;
     document.querySelector("span.munkaóra").innerHTML = munkaidő;
@@ -76,32 +117,19 @@ function pluszÓra(month, day, hour){
 function numberOfDay(){
     for (var e = nap; e < getDaysInMonth(hónap, év)+1; e++){
         let div = createAnyElement("div", {
-            id: hónap + e,
+            id: hónap + "," + e,
             class: "container",
             style: "text-align: left",
             style: "background-color: lightblue",
             
         });
         document.getElementById("ide").appendChild(div);
-        document.getElementById(hónap + e).innerHTML = év + "." + hónap + "." + e + "      ";
+        document.getElementById(hónap + "," + e).innerHTML = év + "." + hónap + "." + e + "      ";
         takeMyTime(e)
     }
 }
 
 numberOfDay()
-
-let lefoglaltIdok = [[11, 23, 9],[11, 22, 9]];
-
-var lefIdoLen = lefoglaltIdok.length;
-
-for (i = 0; i < lefIdoLen; i++){
-    disableFoglaltIdo(lefoglaltIdok[i]);
-    
-    function sumAll() {
-        let sumAll = óradíj * munkaidő;
-        document.querySelector("span.show-AllMount").innerHTML = sumAll;
-    }
-}
 
 function getTime(id) {
     console.log(document.getElementById(id).value);
