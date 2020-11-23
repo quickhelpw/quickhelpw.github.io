@@ -1,5 +1,45 @@
 window.onload = hide;
 let car = 0;
+let keys = ["fokat", "alkat"];
+
+lista = [, ]
+let dataOfDiv = [
+    {
+        fokat: ["ts()", "távoli segítségnyújtás"], 
+        alkat: [["passValues(1800)", "tanulás, minimum 1 óra 1800 Ft/óra"], ["passValues(12000)", "Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db"]]
+    },
+    {
+        fokat: ["os()", "otthoni segítségnyújtás"],
+        alkat: [["passValues(2000)", "gépes melók, minimum 1 óra 2000 Ft/óra"], ["akármi", "valami"]]
+    }
+]
+
+function createAnyElement(name, attributes) {
+    let element = document.createElement(name);
+    for (let k in attributes) {
+        element.setAttribute(k, attributes[k]);
+    }
+    return element;
+}
+
+function getData(){
+    for (let row of dataOfDiv){
+        for (let k of keys){
+            if (k == "fokat"){
+                let div = createAnyElement("div", {
+                    id: row[k][0],
+                    class: "container",
+                    onclick: row[k][0]               
+                });
+                document.getElementById("ide").appendChild(div);
+                document.getElementById(row[k][0]).innerHTML = row[k][1];
+                        
+        }
+}
+    }
+}
+
+getData();
 
 function hide() {
     document.getElementById("alkatOS").style.display = "none";
@@ -12,7 +52,6 @@ function os() {
     document.getElementById("alkatTS").style.display = "none";
     document.getElementById("alkatAÜ").style.display = "none";
     car = 0;
-    //passValues("os")
 }
 
 function ts() {
@@ -20,7 +59,6 @@ function ts() {
     document.getElementById("alkatOS").style.display = "none";
     document.getElementById("alkatAÜ").style.display = "none";
     car = 0;
-    //passValues("ts")
 }
 
 function aü() {
@@ -28,7 +66,6 @@ function aü() {
     document.getElementById("alkatOS").style.display = "none";
     document.getElementById("alkatTS").style.display = "none";
     car = 1;
-    //passValues("aü")
 }
 
 
@@ -47,15 +84,18 @@ function passValues(choice) {
     return false;
 }
 
-function sum(cb, amount) {
-    //let amountInput = amount
-    //let showAmount = document.querySelector("span.show-amount");
-    passValues(amount)
-    //if (cb.checked == true) {
-    //    sumCash += Number(amountInput);
-    //}
-    //else {
-    //    sumCash -= Number(amountInput);
-    //}
-    //showAmount.innerHTML = sumCash;
+
+function numberOfDay(){
+    for (var e = nap; e < getDaysInMonth(hónap, év)+1; e++){
+        let div = createAnyElement("div", {
+            id: hónap + "," + e,
+            class: "container",
+            style: "text-align: left",
+            style: "background-color: lightblue",
+            
+        });
+        document.getElementById("ide").appendChild(div);
+        document.getElementById(hónap + "," + e).innerHTML = év + "." + hónap + "." + e + "      ";
+        takeMyTime(e)
+    }
 }
