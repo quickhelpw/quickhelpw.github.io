@@ -2,10 +2,10 @@ window.onload = hide;
 let car = 0;
 let keys = ["fokat", "alkat"];
 
-lista = [, ]
+lista = [,]
 let dataOfDiv = [
     {
-        fokat: ["ts()", "távoli segítségnyújtás"], 
+        fokat: ["ts()", "távoli segítségnyújtás"],
         alkat: [["passValues(1800)", "tanulás, minimum 1 óra 1800 Ft/óra"], ["passValues(12000)", "Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db"]]
     },
     {
@@ -26,24 +26,36 @@ function createAnyElement(name, attributes) {
     return element;
 }
 
-function getData(){
-    for (let row of dataOfDiv){
-        for (let k of keys){
-            if (k == "fokat"){
-                let div = createAnyElement("div", {
-                    id: row[k][0],
-                    class: "container",
-                    onclick: row[k][0]               
-                });
-                document.getElementById("ide").appendChild(div);
-                document.getElementById(row[k][0]).innerHTML = row[k][1];
-                        
-        }
-}
+function getDataToCreateAlkatDiv(idDiv){
+    if (idDiv == "ts()"){
+        idDivAlkat = "alkatTS"
+    }
+        if (idDiv == "os()"){
+        idDivAlkat = "alkatOS"
     }
 }
 
-getData();
+function getDataToCreateFokatDiv() {
+    for (let row of dataOfDiv) {
+        for (let k of keys) {
+            if (k == "fokat") {
+                let idDiv = row[k][0];
+                let div = createAnyElement("div", {
+                    id: idDiv,
+                    class: "container",
+                    onclick: row[k][0]
+                });
+                document.getElementById("fokat").appendChild(div);
+                document.getElementById(idDiv).innerHTML = row[k][1];
+                getDataToCreateAlkatDiv(idDiv);
+            }
+        }
+    }
+}
+
+
+
+getDataToCreateFokatDiv();
 
 function hide() {
     document.getElementById("alkatOS").style.display = "none";
@@ -89,14 +101,14 @@ function passValues(choice) {
 }
 
 
-function numberOfDay(){
-    for (var e = nap; e < getDaysInMonth(hónap, év)+1; e++){
+function numberOfDay() {
+    for (var e = nap; e < getDaysInMonth(hónap, év) + 1; e++) {
         let div = createAnyElement("div", {
             id: hónap + "," + e,
             class: "container",
             style: "text-align: left",
             style: "background-color: lightblue",
-            
+
         });
         document.getElementById("ide").appendChild(div);
         document.getElementById(hónap + "," + e).innerHTML = év + "." + hónap + "." + e + "      ";
