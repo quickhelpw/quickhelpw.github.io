@@ -10,11 +10,11 @@ let dataOfDiv = [
     },
     {
         fokat: ["os()", "otthoni segítségnyújtás"],
-        alkat: [["passValues(2000)", "gépes melók, minimum 1 óra 2000 Ft/óra"]]
+        alkat: [["passValues(2000)", "gépes melók, minimum 1 óra 2000 Ft/óra"], ["passValues(2000)", "csak kézi, minimum 1 óra 2000 Ft/óra"],["passValues(1800)", "takarítás, minimum 1 óra 1800 Ft/óra"],["passValues(2000)", "babysitter, minimum 1 óra 2000 Ft/óra"],["passValues(2000)", "pakolás, minimum 1 óra 2000 Ft/óra"],["passValues(2000)", "idős ember felügyelése, minimum 1 óra 2000 Ft/óra"],["passValues(2000)", "kutyával kapcsolatos teendők, sétáltatás, kozmetikus, nyírás, fürdetés."]]
     },
     {
         fokat: ["aü()", "Autós ügyintézés"],
-        alkat: [["passValues(2500)", "kormányablak, minimum 1 óra 2500 Ft/óra"], ["passValues(2000)", "csomag a-ből b-be, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)"]]
+        alkat: [["passValues(2500)", "kormányablak, minimum 1 óra 2500 Ft/óra"], ["passValues(2000)", "csomag a-ből b-be, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)"],["passValues(2500)", "ügyfélszállítás egyszerű autóval, minimum 1 óra 2500 Ft/óra(km költség + 110 Ft/km)"],["passValues(3000)", "ügyfélszállítás elegáns autóval, minimum 1 óra 3000 Ft/óra(km költség + 110 Ft/km)"],["passValues(2000)", "vásárlás, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)" ],["passValues(0)", "posta, km költség + 110 Ft/km"],["passValues(0)", "Csomagátvétel(bermelyik üzlet), km költség + 110 Ft/km"],["passValues(0)", "Gyógyszertár, km költség + 110 Ft/km"],["passValues(0)", "Tisztító, öltöny, cipő km költség + 110 Ft/km"]]
     }
 ]
 
