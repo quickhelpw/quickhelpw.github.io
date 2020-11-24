@@ -11,6 +11,10 @@ let dataOfDiv = [
     {
         fokat: ["os()", "otthoni segítségnyújtás"],
         alkat: [["passValues(2000)", "gépes melók, minimum 1 óra 2000 Ft/óra"]]
+    },
+    {
+        fokat: ["aü()", "Autós ügyintézés"],
+        alkat: [["passValues(2500)", "kormányablak, minimum 1 óra 2500 Ft/óra"], ["passValues(2000)", "csomag a-ből b-be, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)"]]
     }
 ]
 
