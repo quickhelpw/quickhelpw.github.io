@@ -10,7 +10,7 @@ let dataOfDiv = [
     },
     {
         fokat: ["os()", "otthoni segítségnyújtás"],
-        alkat: [["passValues(2000)", "gépes melók, minimum 1 óra 2000 Ft/óra"], ["akármi", "valami"]]
+        alkat: [["passValues(2000)", "gépes melók, minimum 1 óra 2000 Ft/óra"]]
     }
 ]
 
