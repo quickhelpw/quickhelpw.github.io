@@ -12,14 +12,12 @@
         rel="stylesheet" />
     <title>QuickHelp</title>
 </head>
-
 <body>
     <div class="row">
         <div class="col-sm">
             <div class="middleBox">
                 <h3>Főkategória</h3>
                 <div id="fokat" class="container">
-
                 </div>
             </div>
         </div>
@@ -28,97 +26,16 @@
                 <div id="alkatOS" class="col-sm">
                     <div>
                         <h3>Alkategória</h3>
-                        <div id="alkat" class="container">
-
-                        </div>
-                        <div class="container">
-                            <label for="gm">gépes melók, minimum 1 óra 2000 Ft/óra</label>
-                            <input onclick="passValues(2000)" name="amount-input" type="radio" value="1000" id="gm">
-                        </div>
-                        <div class="container">
-                            <label for="csk">csak kézi, minimum 1 óra 2000 Ft/óra</label>
-                            <input onclick="passValues(2000)" name="amount-input" value="2000" type="radio" id="csk">
-                        </div>
-                        <div class="container">
-                            <label for="tk">takarítás, minimum 1 óra 1800 Ft/óra</label>
-                            <input onclick="passValues(1800)" name="amount-input" value="1800" type="radio" id="tk">
-                        </div>
-                        <div class="container">
-                            <label for="bs">babysitter, minimum 1 óra 2000 Ft/óra</label>
-                            <input onclick="passValues(2000)" name="amount-input" value="1800" type="radio" id="bs">
-                        </div>
-                        <div class="container">
-                            <label for="pak">pakolás, minimum 1 óra 2000 Ft/óra</label>
-                            <input onclick="passValues(2000)" name="amount-input" value="1800" type="radio" id="pak">
-                        </div>
-                        <div class="container">
-                            <label for="ief">idős ember felügyelése, minimum 1 óra 2000 Ft/óra</label>
-                            <input onclick="passValues(2000)" name="amount-input" value="1800" type="radio" id="ief">
-                        </div>
-                        <div class="container">
-                            <label for="kkt">kutyával kapcsolatos teendők, sétáltatás, kozmetikus, nyírás,
-                                fürdetés.</label>
-                            <input onclick="passValues(2000)" name="amount-input" value="1800" type="radio" id="kkt">
-                        </div>
                     </div>
                 </div>
                 <div id="alkatTS" class="col-sm">
                     <div>
                         <h3>Alkategória</h3>
-                        <div class="container">
-                            <label for="tn">tanulás, minimum 1 óra 1800 Ft/óra</label>
-                            <input onclick="passValues(1800)" name="amount-input" value="1800" type="radio" id="tn">
-                        </div>
-                        <div class="container">
-                            <label for="pbd">Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db</label>
-                            <input onclick="passValues(12000)" name="amount-input" value="1800" type="radio" id="pbd">
-                        </div>
-
                     </div>
                 </div>
                 <div id="alkatAÜ" class="col-sm">
                     <div>
                         <h3>Alkategória</h3>
-                        <div class="container">
-                            <label for="ka">kormányablak, minimum 1 óra 2500 Ft/óra</label>
-                            <input onclick="passValues(2500)" name="amount-input" value="1800" type="radio" id="ka">
-                        </div>
-                        <div class="container">
-                            <label for="csab">csomag a-ből b-be, minimum 1 óra 2000 Ft/óra(km költség + 110
-                                Ft/km)</label>
-                            <input onclick="passValues(2000)" name="amount-input" value="1800" type="radio" id="csab">
-                        </div>
-                        <div class="container">
-                            <label for="üegya">ügyfélszállítás egyszerű autóval, minimum 1 óra 2500 Ft/óra(km költség +
-                                110 Ft/km)</label>
-                            <input onclick="passValues(2500)" name="amount-input" value="1800" type="radio" id="üegya">
-                        </div>
-                        <div class="container">
-                            <label for="üela">ügyfélszállítás elegáns autóval, minimum 1 óra 3000 Ft/óra(km költség +
-                                110 Ft/km)</label>
-                            <input onclick="passValues(3000)" name="amount-input" value="1800" type="radio" id="üela">
-                        </div>
-                        <div class="container">
-                            <label for="vs">vásárlás, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)</label>
-                            <input onclick="passValues(2000)" name="amount-input" value="1800" type="radio" id="vs">
-                        </div>
-                        <div class="container">
-                            <label for="pt">posta, km költség + 110 Ft/km</label>
-                            <input onclick="passValues(0)" name="amount-input" value="1800" type="radio" id="pt">
-                        </div>
-                        <div class="container">
-                            <label for="csbu">Csomagátvétel(bermelyik üzlet), km költség + 110 Ft/km</label>
-                            <input onclick="passValues(0)" name="amount-input" value="1800" type="radio" id="csbu">
-                        </div>
-                        <div class="container">
-                            <label for="gyogy">Gyógyszertár, km költség + 110 Ft/km</label>
-                            <input onclick="passValues(0)" name="amount-input" value="1800" type="radio" id="gyogy">
-                        </div>
-                        <div class="container">
-                            <label for="tisz">Tisztító, öltöny, cipő km költség + 110 Ft/km</label>
-                            <input onclick="passValues(0)" name="amount-input" value="1800" type="radio" id="tisz">
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -128,10 +45,6 @@
         <div class="col-3">
             <button onclick="ellenörzés()">Tovább</button>
         </div>
-        
-    
-    <script src="../quickhelpw.github.io/js/index.js"></script>
-
+        <script src="../quickhelpw.github.io/js/index.js"></script>
 </body>
-
 </html>

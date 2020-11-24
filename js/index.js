@@ -5,15 +5,15 @@ let keys = ["fokat", "alkat"];
 lista = [,]
 let dataOfDiv = [
     {
-        fokat: ["ts()", "távoli segítségnyújtás"],
+        fokat: ["ts()", "távoli segítségnyújtás", "alkatTS"],
         alkat: [["passValues(1800)", "tanulás, minimum 1 óra 1800 Ft/óra"], ["passValues(12000)", "Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db"]]
     },
     {
-        fokat: ["os()", "otthoni segítségnyújtás"],
+        fokat: ["os()", "otthoni segítségnyújtás", "alkatOS"],
         alkat: [["passValues(2000)", "gépes melók, minimum 1 óra 2000 Ft/óra"], ["passValues(2000)", "csak kézi, minimum 1 óra 2000 Ft/óra"],["passValues(1800)", "takarítás, minimum 1 óra 1800 Ft/óra"],["passValues(2000)", "babysitter, minimum 1 óra 2000 Ft/óra"],["passValues(2000)", "pakolás, minimum 1 óra 2000 Ft/óra"],["passValues(2000)", "idős ember felügyelése, minimum 1 óra 2000 Ft/óra"],["passValues(2000)", "kutyával kapcsolatos teendők, sétáltatás, kozmetikus, nyírás, fürdetés."]]
     },
     {
-        fokat: ["aü()", "Autós ügyintézés"],
+        fokat: ["aü()", "Autós ügyintézés", "alkatAÜ"],
         alkat: [["passValues(2500)", "kormányablak, minimum 1 óra 2500 Ft/óra"], ["passValues(2000)", "csomag a-ből b-be, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)"],["passValues(2500)", "ügyfélszállítás egyszerű autóval, minimum 1 óra 2500 Ft/óra(km költség + 110 Ft/km)"],["passValues(3000)", "ügyfélszállítás elegáns autóval, minimum 1 óra 3000 Ft/óra(km költség + 110 Ft/km)"],["passValues(2000)", "vásárlás, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)" ],["passValues(0)", "posta, km költség + 110 Ft/km"],["passValues(0)", "Csomagátvétel(bermelyik üzlet), km költség + 110 Ft/km"],["passValues(0)", "Gyógyszertár, km költség + 110 Ft/km"],["passValues(0)", "Tisztító, öltöny, cipő km költség + 110 Ft/km"]]
     }
 ]
@@ -26,12 +26,22 @@ function createAnyElement(name, attributes) {
     return element;
 }
 
-function getDataToCreateAlkatDiv(idDiv){
-    if (idDiv == "ts()"){
-        idDivAlkat = "alkatTS"
-    }
-        if (idDiv == "os()"){
-        idDivAlkat = "alkatOS"
+function getDataToCreateAlkatDiv(row){
+    for (let k of keys){
+        if (k == "alkat"){
+            listAlkat = row[k]
+            for (i=0; i<listAlkat.length; i++){
+                idDiv = row["fokat"][2] + i;
+                let div = createAnyElement("div", {
+                    id: idDiv,
+                    class: "container",
+                    onclick: row[k][0][0],
+                    role: "button"
+                })
+                document.getElementById(row["fokat"][2]).appendChild(div);
+                document.getElementById(idDiv).innerHTML = row[k][i][1];
+            }
+        }
     }
 }
 
@@ -43,13 +53,14 @@ function getDataToCreateFokatDiv() {
                 let div = createAnyElement("div", {
                     id: idDiv,
                     class: "container",
-                    onclick: row[k][0]
+                    onclick: row[k][0],
+                    role: "button"
                 });
                 document.getElementById("fokat").appendChild(div);
                 document.getElementById(idDiv).innerHTML = row[k][1];
-                getDataToCreateAlkatDiv(idDiv);
             }
         }
+        getDataToCreateAlkatDiv(row);
     }
 }
 
