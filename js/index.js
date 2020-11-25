@@ -6,7 +6,7 @@ lista = [,]
 let dataOfDiv = [
     {
         fokat: ["ts()", "Távoli segítségnyújtás", "alkatTS"],
-        alkat: [["passValues('1800')", "'Tanulás minimum 1 óra 1800 Ft/óra'"], ["passValues(12000)", "Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db"]]
+        alkat: [["passValues('1800')", "'Tanulás, minimum 1 óra 1800 Ft/óra'"], ["passValues('12000')", "'Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db'"]]
     },
     {
         fokat: ["os()", "Otthoni segítségnyújtás", "alkatOS"],
@@ -43,7 +43,7 @@ function getDataToCreateAlkatDiv(row){
                     role: "button"
                 })
                 document.getElementById(row["fokat"][2]).appendChild(div);
-                document.getElementById(idDiv).innerHTML = row[k][i][1];
+                document.getElementById(idDiv).innerHTML = (row[k][i][1]).slice(1, -1);
             }
         }
     }
