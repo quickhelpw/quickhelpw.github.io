@@ -1,4 +1,4 @@
-let óradíj = localStorage.getItem("choice");
+let óradíj = localStorage.getItem("money");
 window.onload = disableFoglaltIdo;
 //console.log(óradíj);
 

@@ -6,7 +6,7 @@ lista = [,]
 let dataOfDiv = [
     {
         fokat: ["ts()", "Távoli segítségnyújtás", "alkatTS"],
-        alkat: [["passValues(1800)", "Tanulás, minimum 1 óra 1800 Ft/óra"], ["passValues(12000)", "Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db"]]
+        alkat: [["passValues('1800')", "'Tanulás minimum 1 óra 1800 Ft/óra'"], ["passValues(12000)", "Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db"]]
     },
     {
         fokat: ["os()", "Otthoni segítségnyújtás", "alkatOS"],
@@ -32,10 +32,14 @@ function getDataToCreateAlkatDiv(row){
             listAlkat = row[k]
             for (i=0; i<listAlkat.length; i++){
                 idDiv = row["fokat"][2] + i;
+                var a = row[k][i][0];
+                var b = ", " + row[k][i][1];
+                var position = -1;
+                var divOnclick = [a.slice(0, position), b, a.slice(position)].join('');
                 let div = createAnyElement("div", {
                     id: idDiv,
                     class: "container",
-                    onclick: row[k][0][0],
+                    onclick: divOnclick,
                     role: "button"
                 })
                 document.getElementById(row["fokat"][2]).appendChild(div);
@@ -69,12 +73,14 @@ function getDataToCreateFokatDiv() {
 getDataToCreateFokatDiv();
 
 function hide() {
+    document.getElementById("alkat").style.display = "none";
     document.getElementById("alkatOS").style.display = "none";
     document.getElementById("alkatTS").style.display = "none";
     document.getElementById("alkatAÜ").style.display = "none";
 }
 
 function os() {
+    document.getElementById("alkat").style.display = "block";
     document.getElementById("alkatOS").style.display = "inline";
     document.getElementById("alkatTS").style.display = "none";
     document.getElementById("alkatAÜ").style.display = "none";
@@ -82,6 +88,7 @@ function os() {
 }
 
 function ts() {
+    document.getElementById("alkat").style.display = "block";
     document.getElementById("alkatTS").style.display = "inline";
     document.getElementById("alkatOS").style.display = "none";
     document.getElementById("alkatAÜ").style.display = "none";
@@ -89,6 +96,7 @@ function ts() {
 }
 
 function aü() {
+    document.getElementById("alkat").style.display = "block";
     document.getElementById("alkatAÜ").style.display = "inline";
     document.getElementById("alkatOS").style.display = "none";
     document.getElementById("alkatTS").style.display = "none";
@@ -105,9 +113,11 @@ function ellenörzés() {
     }
 }
 
-function passValues(choice) {
-    var passV = choice;
-    localStorage.setItem("choice", passV);
+function passValues(money, text) {
+    //var passV = money;
+    //var passText = text;
+    localStorage.setItem("money", money);
+    localStorage.setItem("text", text);
     return false;
 }
 
