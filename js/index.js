@@ -6,7 +6,7 @@ lista = [,]
 let dataOfDiv = [
     {
         fokat: ["ts()", "Távoli segítségnyújtás", "alkatTS"],
-        alkat: [["passValues('1800')", "'Tanulás, minimum 1 óra 1800 Ft/óra'"], ["passValues('12000')", "'Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 12000 Ft/db'"]]
+        alkat: [["passValues('1800')", "'Tanulás, minimum 1 óra 1800 Ft/óra'"], ["passValues('5000')", "'Plakátok, borítók dizájnja 1 hónapban max 5 projekt, 5000 Ft/óra'"]]
     },
     {
         fokat: ["os()", "Otthoni segítségnyújtás", "alkatOS"],
@@ -14,7 +14,7 @@ let dataOfDiv = [
     },
     {
         fokat: ["aü()", "Autós ügyintézés", "alkatAÜ"],
-        alkat: [["passValues('n2500')", "'Kormányablak, minimum 1 óra 2500 Ft/óra'"], ["passValues('2000')", "'Csomag a-ből b-be, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)'"],["passValues('2500')", "'Ügyfélszállítás egyszerű autóval, minimum 1 óra 2500 Ft/óra(km költség + 110 Ft/km)'"],["passValues('3000')", "'Ügyfélszállítás elegáns autóval, minimum 1 óra 3000 Ft/óra(km költség + 110 Ft/km)'"],["'passValues(2000')", "'Vásárlás, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)'" ],["passValues('0')", "'Posta, km költség + 110 Ft/km'"],["passValues('0')", "'Csomagátvétel(bermelyik üzlet), km költség + 110 Ft/km'"],["passValues('0')", "'Gyógyszertár, km költség + 110 Ft/km'"],["passValues('0')", "'Tisztító, öltöny, cipő km költség + 110 Ft/km'"]]
+        alkat: [["passValues('2500')", "'Kormányablak, minimum 1 óra 2500 Ft/óra'"], ["passValues('2000')", "'Csomag a-ből b-be, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)'"],["passValues('2500')", "'Ügyfélszállítás egyszerű autóval, minimum 1 óra 2500 Ft/óra(km költség + 110 Ft/km)'"],["passValues('3000')", "'Ügyfélszállítás elegáns autóval, minimum 1 óra 3000 Ft/óra(km költség + 110 Ft/km)'"],["'passValues(2000')", "'Vásárlás, minimum 1 óra 2000 Ft/óra(km költség + 110 Ft/km)'" ],["passValues('0')", "'Posta, km költség + 110 Ft/km'"],["passValues('0')", "'Csomagátvétel(bermelyik üzlet), km költség + 110 Ft/km'"],["passValues('0')", "'Gyógyszertár, km költség + 110 Ft/km'"],["passValues('0')", "'Tisztító, öltöny, cipő km költség + 110 Ft/km'"]]
     }
 ]
 

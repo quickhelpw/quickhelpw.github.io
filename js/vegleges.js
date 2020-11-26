@@ -1,4 +1,7 @@
 let óradíj = localStorage.getItem("money");
+let szoveg = localStorage.getItem("text");
+let foglalas = {};
+
 window.onload = disableFoglaltIdo;
 //console.log(óradíj);
 
@@ -59,6 +62,7 @@ function takeMyTime(e) {
 }
 
 let munkaidő = 0;
+document.querySelector("span.text").innerHTML = szoveg;
 document.querySelector("span.óradíj").innerHTML = óradíj;
 
 
@@ -93,8 +97,8 @@ function foglaltIdokAtnezes(lista, ido){
             break;
         }
     }
-    lefoglaltIdok.push(ido);
-    console.log(lista);
+    //lefoglaltIdok.push(ido);
+    //console.log(lista);
 }
 
 function pluszÓra(month, day, hour){
@@ -104,12 +108,13 @@ function pluszÓra(month, day, hour){
     foglaltIdokAtnezes(lefoglaltIdok, list)
     if (document.getElementById(id).style.background == "red"){
         document.getElementById(id).style.background = "rgb(41, 223, 56)";
+        munkaidő -= 1;
     }
     else{
         document.getElementById(id).style.background = "red";
+        munkaidő += 1;
     }
     disableFoglaltIdo(id)
-    munkaidő += 1;
     document.querySelector("span.munkaóra").innerHTML = munkaidő;
     sumAll();
 }
@@ -135,5 +140,6 @@ function getTime(id) {
     console.log(document.getElementById(id).value);
 }
 
-
-
+function giveObjectToAnotherPage(){
+    pass;
+}

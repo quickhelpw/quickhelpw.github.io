@@ -13,10 +13,11 @@
 </head>
 <body>
     
-    <p>A végleges összeghez nyomja meg a gombot!</p>
     <div class="row">
         <div class="col-3">
-            <button type="submit" onclick="sumAll()">Végleges kiszámolós</button>
+            <div class="middleBox">
+                <span class="text"></span>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -40,14 +41,29 @@
             </div>
         </div>
     </div>
-        
-<div class="row">
-    <div class="col-3">
-        <a href="../quickhelpw.github.io/index.html"><button>HOME</button></a>
+    <div class="row">
+        <div class="col-3">
+            <div role="button" onclick="giveObjectToAnotherPage()" class="middleBox">
+                Időpont foglalása és vissza a feladatok választásához.
+            </div>
+        </div>
     </div>
-<div id="ide">
-    <p></p>
-</div>
+
+
+    
+    <div class="row">
+        <div class="col-3">
+            <a href="../quickhelpw.github.io/index.html"><button>HOME</button></a>
+        </div>
+        <div id="ide">
+            <p></p>
+        </div>
+        <p>Időpont foglalások véglegesítéséhez és a végleges összeghez nyomja meg a gombot!</p>
+        <div class="row">
+            <div class="col-3">
+                <button type="submit" onclick="sumAll()">Végleges kiszámolós</button>
+        </div>
+    </div>
 <script src="../quickhelpw.github.io/js/vegleges.js"></script>
 </body>
 </html>
